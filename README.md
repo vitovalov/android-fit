@@ -1,9 +1,11 @@
-Android Fit Samples
+Android Fit - Fail
 ============
 
-Example of how to use the Android Fit platform.
+Play Services 8+
+![image](hammerheadMOB30Pvito07282016125542.gif)
 
-
+Play Services 9+
+![image](hammerheadMOB30Pvito07282016125830.gif)
 Pre-requisites
 --------------
 
@@ -49,3 +51,4 @@ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
 License for the specific language governing permissions and limitations under
 the License.
+I
