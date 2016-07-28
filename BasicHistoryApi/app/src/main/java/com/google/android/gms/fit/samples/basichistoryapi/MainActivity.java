@@ -23,7 +23,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -44,14 +44,11 @@ import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.request.DataDeleteRequest;
 import com.google.android.gms.fitness.request.DataReadRequest;
-import com.google.android.gms.fitness.request.DataUpdateRequest;
 import com.google.android.gms.fitness.result.DataReadResult;
 
 import java.text.DateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.util.*;
+import java.util.concurrent.*;
 
 import static java.text.DateFormat.getDateInstance;
 import static java.text.DateFormat.getTimeInstance;
@@ -88,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
         }
 
-        buildFitnessClient();
     }
 
     /**
@@ -129,6 +125,9 @@ public class MainActivity extends AppCompatActivity {
                 .enableAutoManage(this, 0, new GoogleApiClient.OnConnectionFailedListener() {
                     @Override
                     public void onConnectionFailed(ConnectionResult result) {
+                        if (result.getErrorCode() == ConnectionResult.CANCELED) {
+                            mClient = null;
+                        }
                         Log.i(TAG, "Google Play services connection failed. Cause: " +
                                 result.toString());
                         Snackbar.make(
@@ -395,5 +394,9 @@ public class MainActivity extends AppCompatActivity {
         logView.setBackgroundColor(Color.WHITE);
         msgFilter.setNext(logView);
         Log.i(TAG, "Ready.");
+    }
+
+    public void buildClient(View view) {
+        buildFitnessClient();
     }
 }
