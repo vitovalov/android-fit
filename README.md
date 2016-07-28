@@ -1,11 +1,15 @@
 Android Fit - Fail
 ============
 
-Play Services 8+
+##Play Services 8+
+
 ![image](hammerheadMOB30Pvito07282016125542.gif)
 
-Play Services 9+
+##Play Services 9+
+
 ![image](hammerheadMOB30Pvito07282016125830.gif)
+
+
 Pre-requisites
 --------------
 
